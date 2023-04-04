@@ -10,10 +10,14 @@ number = random.randint(0, 10)
 guess = -1
 guesses = 0
 
-while guess != number:
-    guess = int(input("Zgadnij liczbę od 0 do 10: "))
-    guesses += 1
 
+def check_input(guesses):
+    user_inp = int(input("Zgadnij liczbę od 0 do 10: "))
+    guesses += 1
+    return user_inp
+
+
+def check_correct(number, guess, guesses):
     if guess < number:
         print("Podana przez ciebie liczba jest za mała.")
     elif guess > number:
@@ -21,3 +25,8 @@ while guess != number:
     else:
         print("Gratulacje, zgadłeś liczbę!")
         print("Udało Ci się zgadnąć za", guesses, "razem.")
+
+
+while guess != number:
+    guess = check_input(guesses)
+    check_correct(number, guess, guesses)

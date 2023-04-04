@@ -14,33 +14,25 @@ import time
 user_score = 0
 computer_score = 0
 
-# pętla gry
-while True:
-    print("Witaj w grze w rzut monetą!")
-    user_choice = input("Wybierz orła (o) lub reszkę (r): ")
+
+def check_input(user_choice):
     if user_choice == 'o':
-        user_choice_orzel = True
+        return True
+    elif user_choice == 'r':
+        return False
     else:
-        user_choice_orzel = False
+        print("Niepoprawny wybór!")
+        return None
 
-    print("Trzy...")
-    time.sleep(1)
-    print("Dwa...")
-    time.sleep(1)
-    print("Jeden...")
-    time.sleep(1)
 
-    # symulacja rzutu
+def check_win(user_choice, user_score, computer_score):
     coin_toss = random.choice([True, False])
-
-    # wyświetlanie wyniku
     if coin_toss:
         print("Wypadł orzeł!")
     else:
         print("Wypadła reszka!")
 
-    # sprawdzanie wyniku i aktualizacja punktów
-    if user_choice_orzel == coin_toss:
+    if user_choice == coin_toss:
         print("Wygrałeś!")
         user_score += 1
     else:
@@ -50,7 +42,28 @@ while True:
     # wyświetlanie wyniku
     print(f"Wynik: Użytkownik {user_score} - {computer_score} Komputer")
 
-    # pytanie o kolejną rundę
+
+def wait():
+    print("Trzy...")
+    time.sleep(1)
+    print("Dwa...")
+    time.sleep(1)
+    print("Jeden...")
+    time.sleep(1)
+
+
+# pętla gry
+while True:
+    print("Witaj w grze w rzut monetą!")
+    user_choice = input("Wybierz orła (o) lub reszkę (r): ")
+    user_choice_orzel = check_input(user_choice)
+
+    wait()
+
+    check_win(user_choice_orzel, user_score, computer_score)
+
     response = input("Czy chcesz zagrać jeszcze raz? (t/n): ")
-    if response != 't':
+    if response == 't':
+        continue
+    elif response == 'n':
         break
