@@ -10,7 +10,5 @@ def calculate_pi(n):
     return pi  # zwrócenie wartości liczby pi
 
 
-w
-
 # wywołanie funkcji z argumentem nieskończoności - wynik: 3.141592653589793
 print(calculate_pi(1000000))
