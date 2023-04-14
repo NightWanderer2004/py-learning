@@ -3,7 +3,7 @@
 # importujemy bibliotekę numpy
 import numpy as np
 
-# definujemy funkcji
+# definujemy 5 funkcij
 
 
 def func1(x):
@@ -34,6 +34,7 @@ def secant_method(func, a, b, eps):
 
     # sprawdzamy czy funkcja przyjmuje wartości o różnych znakach
     while abs(x1 - x0) > eps:
+        # wzór na metodę siecznych
         x2 = x1 - (func(x1) * (x1 - x0)) / (func(x1) - func(x0))
         x0 = x1
         x1 = x2
