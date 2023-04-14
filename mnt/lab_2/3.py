@@ -3,9 +3,8 @@
 # importujemy bibliotekę numpy
 import numpy as np
 
-# definujemy 5 funkcij
 
-
+# definujemy 5 funkcijs
 def func1(x):
     return x**2 + x - 1
 

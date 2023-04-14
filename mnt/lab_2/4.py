@@ -1,30 +1,46 @@
+# Napisać program w języku Scilab, który przy pomocy metody Newtona wyznacza wartość pierwiastka funkcji(16) dla punktu początkowego x = 0.05,a następnie dla punktu x = 0.9.
+# Dla danych przypadków przyjąć dokładność przybliżenia δ = 1e-5, porównać zbieżność metody dla podanych punktów początkowych
+
+# importujemy biblioteki
 import numpy as np
 
-def funkcja(x): # funkcja do której szukamy pierwiastka
-    return (np.exp(5*x)/100) - 1/4 
 
-def pochodna(x): # pochodna funkcji
+# definujemy funkcję
+def funkcja(x):
+    return (np.exp(5*x)/100) - 1/4
+
+
+# pochodna funkcji
+def pochodna(x):
     return 5*np.exp(5*x)/100
 
-def metoda_newtona(x0, delta): # metoda Newtona
+
+# metoda Newtona-Raphsona
+def metoda_newtona(x0, delta):
     iteracje = 0
     x = x0
-    while abs(funkcja(x)) > delta: # warunek kończący iteracje, jeśli znaleziono pierwiastek z dostatecznie małą dokładnością
-        x = x - funkcja(x) / pochodna(x) 
-        iteracje += 1 
+    # warunek kończący iteracje, jeśli znaleziono pierwiastek z dostatecznie małą dokładnością
+    while abs(funkcja(x)) > delta:
+        x = x - funkcja(x) / pochodna(x)
+        iteracje += 1
     pierwiastek = x
-    return pierwiastek, iteracje # zwracamy znaleziony pierwiastek i liczbę iteracji
+    return pierwiastek, iteracje  # zwracamy znaleziony pierwiastek i liczbę iteracji
 
-delta = 1e-5 # dokładność szukania pierwiastka
-x0_1 = 0.05 # punkt startowy algorytmu
-x0_2 = 0.9 # punkt startowy algorytmu
 
-pierwiastek_1, iteracje_1 = metoda_newtona(x0_1, delta) # wywołujemy funkcję
-print("Dla x0 = 0.05:") # wypisujemy wyniki
-print("Pierwiastek: ", pierwiastek_1) # wypisujemy wyniki
+# definujemy zmienne
+x0_1 = 0.05  # punkt startowy algorytmu
+x0_2 = 0.9  # punkt startowy algorytmu
+delta = 1e-5
+
+# wywołujemy funkcję
+pierwiastek_1, iteracje_1 = metoda_newtona(x0_1, delta)
+
+# wyswietlamy wyniki
+print("Dla x0 = 0.05:")
+print("Pierwiastek: ", pierwiastek_1)
 print("Liczba iteracji: ", iteracje_1)
 
-pierwiastek_2, iteracje_2 = metoda_newtona(x0_2, delta) # wywołujemy funkcję
-print("Dla x0 = 0.9:") # wypisujemy wyniki
-print("Pierwiastek: ", pierwiastek_2) 
-print("Liczba iteracji: ", iteracje_2) 
+pierwiastek_2, iteracje_2 = metoda_newtona(x0_2, delta)
+print("Dla x0 = 0.9:")
+print("Pierwiastek: ", pierwiastek_2)
+print("Liczba iteracji: ", iteracje_2)
