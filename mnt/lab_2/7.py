@@ -11,12 +11,14 @@ def func11(x):
 
 # definujemy metody obliczania pierwiastkow
 def bisect(f, a, b, eps):
+    iteration = 0
     # sprawdzamy czy funkcja ma znaki rozne na koncach przedzialu
     if f(a) * f(b) > 0:
         return None
 
     # wykonujemy petle dopoki nie osiagniemy zadanej dokladnosci
     while b - a > eps:
+        iteration += 1
         x = (a + b) / 2
         if f(x) == 0:
             return x
@@ -26,24 +28,31 @@ def bisect(f, a, b, eps):
             a = x
 
     # zwrocenie sredniej z koncow przedzialu
+    print("Liczba iteracji: ", iteration)
     return (a + b) / 2
 
 
 def secant(f, x0, x1, eps):
+    iteration = 0
     # wykonujemy petle dopoki nie osiagniemy zadanej dokladnosci
     while abs(x1 - x0) > eps:
+        iteration += 1
         # wzor na metode siecznych
         x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
         x0 = x1
         x1 = x2
+    print("Liczba iteracji: ", iteration)
     return x1
 
 
 def newton(f, x0, eps):
+    iteration = 0
     # wykonujemy petle dopoki nie osiagniemy zadanej dokladnosci
     while abs(f(x0)) > eps:
+        iteration += 1
         x0 = x0 - f(x0) / (f(x0 + eps) - f(x0)) * \
             eps  # wzor na metode Newtona-Raphsona
+    print("Liczba iteracji: ", iteration)
     return x0
 
 
@@ -55,8 +64,13 @@ delta = 1e-6
 
 # wyswietlamy wyniki
 print("Pierwiastek funkcji 10 metodą bisekcji: ", bisect(func10, a, b, delta))
+print('------')
 print("Pierwiastek funkcji 11 metodą bisekcji: ", bisect(func11, a, b, delta))
+print('------')
 print("Pierwiastek funkcji 10 metodą siecznych: ", secant(func10, a, b, delta))
+print('------')
 print("Pierwiastek funkcji 11 metodą siecznych: ", secant(func11, a, b, delta))
+print('------')
 print("Pierwiastek funkcji 10 metodą Newtona-Raphsona: ", newton(func10, c, delta))
+print('------')
 print("Pierwiastek funkcji 11 metodą Newtona-Raphsona: ", newton(func11, c, delta))

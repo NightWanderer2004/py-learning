@@ -1,7 +1,8 @@
 # Napisz program w języku Python, który przy pomocy metody siecznych wyznaczy wartość pierwiastka następujących funkcji w przedziale izolacji[0.05, 1]
 
-# importujemy bibliotekę numpy
+# importujemy biblioteki
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # definujemy 5 funkcijs
@@ -45,7 +46,18 @@ a = 0.05
 b = 1
 delta = 0.0001
 
-# wyswietlamy wyniki
+# wyświetlamy wykresy
+plt.plot(np.arange(a, b, delta), func1(np.arange(a, b, delta)))
+
+# wyświetlamy miejsce zerowe dla funkcji 1
+plt.plot(secant_method(func1, a, b, delta), func1(
+    secant_method(func1, a, b, delta)), 'ro')
+
+# wlaczenie siatki
+plt.grid()
+plt.show()
+
+# wyswietlamy wyniki w konsoli
 print("func1 root: ", secant_method(func1, a, b, delta))
 print("func2 root: ", secant_method(func2, a, b, delta))
 print("func3 root: ", secant_method(func3, a, b, delta))
