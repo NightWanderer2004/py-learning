@@ -1,0 +1,27 @@
+games:
+   - genre: RPG
+     platform: PlayStation 4
+     publisher: スクウェア・エニックス
+     release_date: 2020-04-10
+     title: ファイナルファンタジーVII リメイク
+   - genre: アクションRPG
+     platform: Nintendo Switch
+     publisher: カプコン
+     release_date: 2021-03-26
+     title: モンスターハンターライズ
+   - genre: RPG
+     platform: PlayStation 4, Nintendo Switch
+     publisher: スクウェア・エニックス
+     release_date: 2017-07-29
+     title: ドラゴンクエストXI 過ぎ去りし時を求めて S
+   - genre: アクションアドベンチャー
+     platform: Nintendo Switch
+     publisher: 任天堂
+     release_date: 2017-03-03
+     title: ゼルダの伝説 ブレス オブ ザ ワイルドs
+   - developer: PlatinumGames
+     genre: Action RPG, drama
+     platform: PlayStation 4, Xbox One, Microsoft Windows
+     publisher: Square Enix
+     release_date: '2017-02-23'
+     title: Nier:Automata
