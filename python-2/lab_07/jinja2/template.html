@@ -10,17 +10,15 @@
       <table border="1">
          <thead>
             <tr>
-               <th>Name</th>
+               <th>Character</th>
                <th>Age</th>
-               <th>Country</th>
             </tr>
          </thead>
          <tbody>
             {% for row in data %}
             <tr>
-               <td>{{ row.Name }}</td>
+               <td>{{ row.Character }}</td>
                <td>{{ row.Age }}</td>
-               <td>{{ row.Country }}</td>
             </tr>
             {% endfor %}
          </tbody>
